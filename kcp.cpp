@@ -12,7 +12,7 @@ int Kcp::UdpOutput(const char* buf, int len, ikcpcb* kcp, void* user) {
 
 Kcp::~Kcp() { ikcp_release(m_pKcb); }
 
-void Kcp::Initialize(PyObject* pfSendCallBack, uint32_t uToken) {
+void Kcp::Initialize(PyObject* pfSendCallBack, unsigned long uToken) {
     m_pKcb = ikcp_create(uToken, this);
     m_uToken = uToken;
 
@@ -24,7 +24,7 @@ void Kcp::Initialize(PyObject* pfSendCallBack, uint32_t uToken) {
     m_pKcb->fastresend = 1;
 }
 
-void Kcp::Update(uint64_t uCurTime) {
+void Kcp::Update(unsigned long uCurTime) {
     ikcp_update(m_pKcb, (IUINT32)(uCurTime & 0xfffffffful));
 }
 

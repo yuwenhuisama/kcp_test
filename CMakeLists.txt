@@ -8,12 +8,13 @@ enable_testing()
 
 add_executable(kcptest main.cpp)
 add_library(kcpwrapper kcp_api_wrapper.cpp kcp.cpp)
+include_directories(C:/Python27/include)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
-find_library(PYTHON_27 python2.7)
+set(PYTHON_27 C:/Python27/libs/python27.lib)
 
 find_package(kcp CONFIG REQUIRED)
 

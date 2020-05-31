@@ -11,12 +11,12 @@ if __name__ == "__main__":
 
     extention = Extension(
         "kcp",
-        # libraries=["kcpwrapper"],
         ["kcp.c"],
+        libraries=["kcpwrapper"],
         # language="c",
         # extra_compile_args=['-std=c++17'],
-        # include_dirs=[cwd],
-        # library_dirs=[lib_dir],
+        include_dirs=[cwd],
+        library_dirs=[lib_dir],
     )
 
     setup(name="kcp",

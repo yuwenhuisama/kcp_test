@@ -2,12 +2,12 @@
 #define _H_KCP_
 
 #include <ikcp.h>
-#include <python2.7/Python.h>
+#include <Python.h>
 
 class Kcp {
 private:
     ikcpcb *m_pKcb = nullptr;
-    uint32_t m_uToken = 0;
+    unsigned long m_uToken = 0;
 
     PyObject* m_pfSendCallBack = nullptr;
 
@@ -21,8 +21,8 @@ public:
 
     const PyObject* GetPyCallBack() const { return m_pfSendCallBack; }
 
-    void Initialize(PyObject* pfSendCallBack, uint32_t uToken);
-    void Update(uint64_t uCurTime);
+    void Initialize(PyObject* pfSendCallBack, unsigned long uToken);
+    void Update(unsigned long uCurTime);
     void Input(PyObject* pPyByteArray);
     void Recv(PyObject* pPyByteArray);
     void Send(PyObject* pPyByteArray);

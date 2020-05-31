@@ -63,6 +63,6 @@ static PyTypeObject KcpType = {
 
 static PyMethodDef kcpMethods[] = {{nullptr}};
 
-void initModule(void) {
-    Py_InitModule3("kcp", kcpMethods, "Kcp for python2");
+extern "C" {
+void initModule(void) { Py_InitModule3("kcp", kcpMethods, "Kcp for python2"); }
 }
